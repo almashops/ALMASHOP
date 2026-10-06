@@ -24,25 +24,48 @@ const SIZES = ["S", "M", "L", "XL"];
 /* Tipos de camiseta. Para cambiar un precio o un gramaje, edita SOLO esta tabla: catálogo, modal, carrito y pedido de WhatsApp se actualizan solos. */
 const TYPES = {
     basica: { id: "basica", label: "Básica", gsm: 180, price: 250, note: "" },
-    oversize: { id: "oversize", label: "Oversize", gsm: 220, price: 350, note: "Fit holgado" },
+    oversize: {
+        id: "oversize",
+        label: "Oversize",
+        gsm: 220,
+        price: 350,
+        note: "Fit holgado",
+    },
 };
 const TYPE_IDS = Object.keys(TYPES);
 const PRICE_FROM = Math.min(...TYPE_IDS.map((t) => TYPES[t].price));
 
-const CATEGORIES = [
-    { name: "Halloween", label: "Halloween", count: 30, prefix: "HORROR", cls: "c-hal" },
+const CATEGORIES = [{
+        name: "Halloween",
+        label: "Halloween",
+        count: 30,
+        prefix: "HORROR",
+        cls: "c-hal",
+    },
     { name: "Anime", label: "Anime", count: 0, prefix: "ANIME", cls: "c-ani" },
-    { name: "Superhéroes / Villanos", label: "Superhéroes", count: 60, prefix: "HERO", cls: "c-her" },
+    {
+        name: "Superhéroes / Villanos",
+        label: "Superhéroes",
+        count: 60,
+        prefix: "HERO",
+        cls: "c-her",
+    },
     { name: "Rock", label: "Rock", count: 40, prefix: "ROCK", cls: "c-rock" },
-    { name: "Variedades", label: "Variedades", count: 15, prefix: "VAR", cls: "c-var" },
+    {
+        name: "Variedades",
+        label: "Variedades",
+        count: 15,
+        prefix: "VAR",
+        cls: "c-var",
+    },
 ];
 
 const DESCRIPTIONS = {
-    "Halloween": "Edición especial Halloween / Horror Drop. Camiseta de estética gráfica.",
-    "Anime": "Diseño inspirado en anime y manga.",
+    Halloween: "Edición especial Halloween / Horror Drop. Camiseta de estética gráfica.",
+    Anime: "Diseño inspirado en anime y manga.",
     "Superhéroes / Villanos": "Diseño inspirado en héroes, antihéroes y villanos.",
-    "Rock": "Diseño inspirado en música y cultura rock.",
-    "Variedades": "Diseño gráfico de colección variada.",
+    Rock: "Diseño inspirado en música y cultura rock.",
+    Variedades: "Diseño gráfico de colección variada.",
 };
 
 /* Fotos y nombres reales por código. Ejemplo:
@@ -211,7 +234,7 @@ const products = CATEGORIES.flatMap((c) =>
             image: o.image || null,
             description: o.description || DESCRIPTIONS[c.name],
         };
-    })
+    }),
 );
 const byId = new Map(products.map((p) => [p.id, p]));
 const categoryByName = new Map(CATEGORIES.map((c) => [c.name, c]));
@@ -222,14 +245,39 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const money = (n) => `$${n.toLocaleString("es-MX")}`;
 const priceLabel = (n) => `${money(n)} ${CONFIG.currency}`;
 const typeLabel = (t) => `${t.label} ${t.gsm} GSM`;
-const normalize = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const waUrl = (text) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
-const whatsappReady = () => !/^5210+$/.test(CONFIG.whatsapp) && /^\d{10,15}$/.test(CONFIG.whatsapp);
+const normalize = (s) =>
+    s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+const esc = (s) =>
+    String(s).replace(
+        /[&<>"']/g,
+        (c) =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+            c
+        ],
+    );
+const waUrl = (text) =>
+    `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
+const whatsappReady = () =>
+    !/^5210+$/.test(CONFIG.whatsapp) && /^\d{10,15}$/.test(CONFIG.whatsapp);
 
 const storage = {
-    get(key) { try { return localStorage.getItem(key); } catch { return null; } },
-    set(key, value) { try { localStorage.setItem(key, value); } catch { /* modo privado o cuota llena */ } },
+    get(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch {
+            return null;
+        }
+    },
+    set(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch {
+            /* modo privado o cuota llena */
+        }
+    },
 };
 
 let toastTimer;
@@ -250,14 +298,23 @@ function setBackgroundInert(on) {
 
 function trapFocus(container, event) {
     if (event.key !== "Tab") return;
-    const focusables = $$('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])', container)
-        .filter((el) => !el.closest("[hidden]") && el.getAttribute("aria-disabled") !== "true");
+    const focusables = $$(
+        'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])',
+        container,
+    ).filter(
+        (el) =>
+        !el.closest("[hidden]") && el.getAttribute("aria-disabled") !== "true",
+    );
     if (!focusables.length) return;
     const first = focusables[0];
     const last = focusables[focusables.length - 1];
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault();
-        last.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault();
-        first.focus(); }
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
 }
 
 /* Imagen del producto, o ficha ilustrada mientras no haya foto */
@@ -279,8 +336,9 @@ const state = { category: "all", query: "", shown: CONFIG.pageSize };
 function filtered() {
   const q = normalize(state.query.trim());
   return products.filter(
-    (p) => (state.category === "all" || p.category === state.category) &&
-      (!q || normalize(`${p.name} ${p.id} ${p.category}`).includes(q))
+    (p) =>
+      (state.category === "all" || p.category === state.category) &&
+      (!q || normalize(`${p.name} ${p.id} ${p.category}`).includes(q)),
   );
 }
 
@@ -298,16 +356,27 @@ function cardHtml(p) {
 
 function renderTabs() {
   const total = products.length;
-  const tabs = [{ name: "all", label: "Todos", count: total }, ...CATEGORIES.map((c) => ({ name: c.name, label: c.label, count: c.count }))];
+  const tabs = [
+    { name: "all", label: "Todos", count: total },
+    ...CATEGORIES.map((c) => ({
+      name: c.name,
+      label: c.label,
+      count: c.count,
+    })),
+  ];
   $("#categoryTabs").innerHTML = tabs
-    .map((t) => `<button type="button" data-category="${esc(t.name)}" aria-pressed="${t.name === state.category}">${esc(t.label)} <i>${t.count || "pronto"}</i></button>`)
+    .map(
+      (t) =>
+        `<button type="button" data-category="${esc(t.name)}" aria-pressed="${t.name === state.category}">${esc(t.label)} <i>${t.count || "pronto"}</i></button>`,
+    )
     .join("");
 }
 
 function render() {
   const list = filtered();
   grid.innerHTML = list.slice(0, state.shown).map(cardHtml).join("");
-  $("#resultCount").textContent = `${list.length} ${list.length === 1 ? "diseño" : "diseños"}`;
+  $("#resultCount").textContent =
+    `${list.length} ${list.length === 1 ? "diseño" : "diseños"}`;
 
   const remaining = list.length - state.shown;
   const more = $("#loadMore");
@@ -323,15 +392,26 @@ function render() {
       : "No encontramos diseños con esa búsqueda. Prueba con otra palabra o escríbenos tu idea.";
     const cta = $("#emptyCta");
     cta.hidden = false;
-    cta.href = waUrl(isAnime ? "Hola ALMA, quiero una camiseta de anime. Tengo un diseño en mente." : `Hola ALMA, busqué "${state.query.trim()}" en el catálogo y quiero cotizar un diseño así.`);
-    cta.textContent = isAnime ? "Pedir diseño de anime" : "Pedir este diseño por WhatsApp";
+    cta.href = waUrl(
+      isAnime
+        ? "Hola ALMA, quiero una camiseta de anime. Tengo un diseño en mente."
+        : `Hola ALMA, busqué "${state.query.trim()}" en el catálogo y quiero cotizar un diseño así.`,
+    );
+    cta.textContent = isAnime
+      ? "Pedir diseño de anime"
+      : "Pedir este diseño por WhatsApp";
   }
 }
 
 function setCategory(category, { updateUrl = true } = {}) {
   state.category = category || "all";
   state.shown = CONFIG.pageSize;
-  $$("#categoryTabs button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.category === state.category)));
+  $$("#categoryTabs button").forEach((b) =>
+    b.setAttribute(
+      "aria-pressed",
+      String(b.dataset.category === state.category),
+    ),
+  );
   render();
   if (updateUrl) {
     const url = new URL(location.href);
@@ -349,14 +429,20 @@ $("#categoryTabs").addEventListener("click", (e) => {
 let searchTimer;
 $("#searchInput").addEventListener("input", (e) => {
   clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => { state.query = e.target.value; state.shown = CONFIG.pageSize; render(); }, 150);
+  searchTimer = setTimeout(() => {
+    state.query = e.target.value;
+    state.shown = CONFIG.pageSize;
+    render();
+  }, 150);
 });
 
 $("#loadMore").addEventListener("click", () => {
   const previous = grid.children.length;
   state.shown += CONFIG.pageSize;
   render();
-  grid.children[previous]?.querySelector("button")?.focus({ preventScroll: true });
+  grid.children[previous]
+    ?.querySelector("button")
+    ?.focus({ preventScroll: true });
 });
 
 $$("[data-jump-category]").forEach((el) =>
@@ -364,16 +450,29 @@ $$("[data-jump-category]").forEach((el) =>
     e.preventDefault();
     setCategory(el.dataset.jumpCategory);
     $("#catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
-  })
+  }),
 );
 
 /* ---------- 4. Modal de producto ---------- */
 const modal = $("#productModal");
-const modalState = { product: null, type: null, size: null, qty: 1, opener: null };
+const modalState = {
+  product: null,
+  type: null,
+  size: null,
+  qty: 1,
+  opener: null,
+};
 
 function openModal(p) {
-  Object.assign(modalState, { product: p, type: CONFIG.defaultType, size: null, qty: 1, opener: document.activeElement });
-  $("#modalCategory").textContent = categoryByName.get(p.category)?.label ?? p.category;
+  Object.assign(modalState, {
+    product: p,
+    type: CONFIG.defaultType,
+    size: null,
+    qty: 1,
+    opener: document.activeElement,
+  });
+  $("#modalCategory").textContent =
+    categoryByName.get(p.category)?.label ?? p.category;
   $("#modalTitle").textContent = p.name;
   $("#modalDescription").textContent = p.description;
   $("#modalImage").innerHTML = mediaHtml(p, { lazy: false });
@@ -388,7 +487,10 @@ function openModal(p) {
       </span>
     </label>`;
   }).join("");
-  $("#modalSizes").innerHTML = SIZES.map((s) => `<button type="button" data-size="${s}" aria-pressed="false" aria-label="Talla ${s}">${s}</button>`).join("");
+  $("#modalSizes").innerHTML = SIZES.map(
+    (s) =>
+      `<button type="button" data-size="${s}" aria-pressed="false" aria-label="Talla ${s}">${s}</button>`,
+  ).join("");
   $("#qtyValue").textContent = "1";
   $("#sizeError").hidden = true;
   $("#typeError").hidden = true;
@@ -403,9 +505,14 @@ function refreshModalPrice() {
   const t = TYPES[modalState.type];
   const p = modalState.product;
   $("#modalPrice").textContent = money(t ? t.price : PRICE_FROM);
-  $("#modalPriceNote").textContent = t ? `${CONFIG.currency} · ${typeLabel(t)}` : `${CONFIG.currency} · desde`;
+  $("#modalPriceNote").textContent = t
+    ? `${CONFIG.currency} · ${typeLabel(t)}`
+    : `${CONFIG.currency} · desde`;
   const kind = t ? ` en versión ${t.label.toLowerCase()} (${t.gsm} GSM)` : "";
-  if (p) $("#askWhatsapp").href = waUrl(`Hola ALMA, me interesa la camiseta ${p.name} (${p.id})${kind}. ¿Está disponible?`);
+  if (p)
+    $("#askWhatsapp").href = waUrl(
+      `Hola ALMA, me interesa la camiseta ${p.name} (${p.id})${kind}. ¿Está disponible?`,
+    );
 }
 
 function closeModal() {
@@ -415,8 +522,12 @@ function closeModal() {
   modalState.opener?.focus?.();
 }
 
-modal.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) closeModal(); });
-modal.addEventListener("keydown", (e) => trapFocus($(".modal__card", modal), e));
+modal.addEventListener("click", (e) => {
+  if (e.target.closest("[data-close]")) closeModal();
+});
+modal.addEventListener("keydown", (e) =>
+  trapFocus($(".modal__card", modal), e),
+);
 
 $("#modalTypes").addEventListener("change", (e) => {
   const input = e.target.closest('input[name="tshirtType"]');
@@ -430,12 +541,20 @@ $("#modalSizes").addEventListener("click", (e) => {
   const b = e.target.closest("button[data-size]");
   if (!b) return;
   modalState.size = b.dataset.size;
-  $$("#modalSizes button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  $$("#modalSizes button").forEach((x) =>
+    x.setAttribute("aria-pressed", String(x === b)),
+  );
   $("#sizeError").hidden = true;
 });
 
-$("#qtyMinus").addEventListener("click", () => { modalState.qty = Math.max(1, modalState.qty - 1); $("#qtyValue").textContent = modalState.qty; });
-$("#qtyPlus").addEventListener("click", () => { modalState.qty = Math.min(CONFIG.maxQty, modalState.qty + 1); $("#qtyValue").textContent = modalState.qty; });
+$("#qtyMinus").addEventListener("click", () => {
+  modalState.qty = Math.max(1, modalState.qty - 1);
+  $("#qtyValue").textContent = modalState.qty;
+});
+$("#qtyPlus").addEventListener("click", () => {
+  modalState.qty = Math.min(CONFIG.maxQty, modalState.qty + 1);
+  $("#qtyValue").textContent = modalState.qty;
+});
 
 grid.addEventListener("click", (e) => {
   const card = e.target.closest(".product-card");
@@ -448,7 +567,7 @@ $("#addToCart").addEventListener("click", () => {
   if (!type || !size) {
     $("#typeError").hidden = !!type;
     $("#sizeError").hidden = !!size;
-    (!type ? $('#modalTypes input') : $("#modalSizes button"))?.focus();
+    (!type ? $("#modalTypes input") : $("#modalSizes button"))?.focus();
     return;
   }
   const key = `${product.id}-${type}-${size}`;
@@ -471,8 +590,16 @@ function loadCart() {
     const raw = JSON.parse(storage.get(CONFIG.storageKey) || "[]");
     return raw
       .filter((i) => byId.has(i?.id) && TYPES[i.type] && SIZES.includes(i.size))
-      .map((i) => ({ key: `${i.id}-${i.type}-${i.size}`, id: i.id, type: i.type, size: i.size, qty: Math.min(CONFIG.maxQty, Math.max(1, Number(i.qty) || 1)) }));
-  } catch { return []; }
+      .map((i) => ({
+        key: `${i.id}-${i.type}-${i.size}`,
+        id: i.id,
+        type: i.type,
+        size: i.size,
+        qty: Math.min(CONFIG.maxQty, Math.max(1, Number(i.qty) || 1)),
+      }));
+  } catch {
+    return [];
+  }
 }
 let cart = loadCart();
 
@@ -481,7 +608,12 @@ const overlay = $("#cartOverlay");
 let cartOpener = null;
 
 function saveCart() {
-  storage.set(CONFIG.storageKey, JSON.stringify(cart.map(({ id, type, size, qty }) => ({ id, type, size, qty }))));
+  storage.set(
+    CONFIG.storageKey,
+    JSON.stringify(
+      cart.map(({ id, type, size, qty }) => ({ id, type, size, qty })),
+    ),
+  );
   renderCart();
 }
 
@@ -489,15 +621,23 @@ const lineTotal = (i) => i.qty * TYPES[i.type].price;
 const cartTotal = () => cart.reduce((s, i) => s + lineTotal(i), 0);
 
 function orderUrl() {
-  const lines = cart.map((i) => `• ${i.qty} x ${byId.get(i.id).name} (${i.id}) — ${typeLabel(TYPES[i.type])} — talla ${i.size} — ${priceLabel(lineTotal(i))}`);
-  return waUrl(`Hola ALMA, quiero realizar este pedido:\n${lines.join("\n")}\n\nTotal: ${priceLabel(cartTotal())}`);
+  const lines = cart.map(
+    (i) =>
+      `• ${i.qty} x ${byId.get(i.id).name} (${i.id}) — ${typeLabel(TYPES[i.type])} — talla ${i.size} — ${priceLabel(lineTotal(i))}`,
+  );
+  return waUrl(
+    `Hola ALMA, quiero realizar este pedido:\n${lines.join("\n")}\n\nTotal: ${priceLabel(cartTotal())}`,
+  );
 }
 
 function renderCart() {
   const count = cart.reduce((s, i) => s + i.qty, 0);
   const total = cartTotal();
   $("#cartCount").textContent = count;
-  $("#cartButton").setAttribute("aria-label", `Abrir carrito, ${count} ${count === 1 ? "artículo" : "artículos"}`);
+  $("#cartButton").setAttribute(
+    "aria-label",
+    `Abrir carrito, ${count} ${count === 1 ? "artículo" : "artículos"}`,
+  );
   $("#cartTotal").textContent = priceLabel(total);
 
   const wa = $("#cartWhatsapp");
@@ -505,9 +645,10 @@ function renderCart() {
   wa.setAttribute("aria-disabled", String(!cart.length));
 
   $("#cartBody").innerHTML = cart.length
-    ? cart.map((i, n) => {
-        const p = byId.get(i.id);
-        return `<div class="cart-item">
+    ? cart
+        .map((i, n) => {
+          const p = byId.get(i.id);
+          return `<div class="cart-item">
           <div class="cart-item__img">${mediaHtml(p, { small: true })}</div>
           <div>
             <h3>${esc(p.name)}</h3>
@@ -521,7 +662,8 @@ function renderCart() {
           </div>
           <div class="cart-item__price">${money(lineTotal(i))}</div>
         </div>`;
-      }).join("")
+        })
+        .join("")
     : `<div class="cart-empty"><strong>Tu carrito está vacío.</strong><p>Agrega una camiseta y aquí podrás revisar tu pedido antes de enviarlo.</p></div>`;
 }
 
@@ -531,19 +673,27 @@ $("#cartBody").addEventListener("click", (e) => {
   const i = Number(b.dataset.i);
   if (!cart[i]) return;
   if (b.dataset.act === "minus") cart[i].qty = Math.max(1, cart[i].qty - 1);
-  if (b.dataset.act === "plus") cart[i].qty = Math.min(CONFIG.maxQty, cart[i].qty + 1);
+  if (b.dataset.act === "plus")
+    cart[i].qty = Math.min(CONFIG.maxQty, cart[i].qty + 1);
   if (b.dataset.act === "remove") cart.splice(i, 1);
   saveCart();
   /* devuelve el foco al mismo control tras redibujar */
-  const same = $(`#cartBody [data-act="${b.dataset.act}"][data-i="${Math.min(i, cart.length - 1)}"]`);
+  const same = $(
+    `#cartBody [data-act="${b.dataset.act}"][data-i="${Math.min(i, cart.length - 1)}"]`,
+  );
   (same || $("#cartClose")).focus();
 });
 
 $("#cartWhatsapp").addEventListener("click", (e) => {
-  if (!cart.length) { e.preventDefault(); return; }
+  if (!cart.length) {
+    e.preventDefault();
+    return;
+  }
   if (!whatsappReady()) {
     e.preventDefault();
-    toast("Falta configurar el número de WhatsApp en script.js (CONFIG.whatsapp)");
+    toast(
+      "Falta configurar el número de WhatsApp en script.js (CONFIG.whatsapp)",
+    );
     console.warn("ALMA: CONFIG.whatsapp todavía tiene el número de ejemplo.");
   }
 });
@@ -572,16 +722,30 @@ overlay.addEventListener("click", closeCart);
 drawer.addEventListener("keydown", (e) => trapFocus(drawer, e));
 
 /* WhatsApp: botón flotante */
-$("#waFloat").href = waUrl("Hola ALMA, vi su catálogo y quiero más información.");
+$("#waFloat").href = waUrl(
+  "Hola ALMA, vi su catálogo y quiero más información.",
+);
 
 /* WhatsApp: personalización */
 const customLink = $("#whatsappCustom");
-customLink.href = waUrl("Hola ALMA, quiero personalizar una camiseta. Tengo una idea/diseño y quisiera cotizarla.");
+customLink.href = waUrl(
+  "Hola ALMA, quiero personalizar una camiseta. Tengo una idea/diseño y quisiera cotizarla.",
+);
 customLink.addEventListener("click", (e) => {
-  if (!whatsappReady()) { e.preventDefault(); toast("Falta configurar el número de WhatsApp en script.js (CONFIG.whatsapp)"); }
+  if (!whatsappReady()) {
+    e.preventDefault();
+    toast(
+      "Falta configurar el número de WhatsApp en script.js (CONFIG.whatsapp)",
+    );
+  }
 });
 $("#askWhatsapp").addEventListener("click", (e) => {
-  if (!whatsappReady()) { e.preventDefault(); toast("Falta configurar el número de WhatsApp en script.js (CONFIG.whatsapp)"); }
+  if (!whatsappReady()) {
+    e.preventDefault();
+    toast(
+      "Falta configurar el número de WhatsApp en script.js (CONFIG.whatsapp)",
+    );
+  }
 });
 
 /* ---------- 6. Cuenta regresiva, menú e init ---------- */
@@ -605,7 +769,11 @@ function tick() {
   const signature = Object.values(v).join(":");
   if (signature !== lastValues) {
     lastValues = signature;
-    for (const [k, val] of Object.entries(v)) $(`[data-u="${k}"]`, countdownEl).textContent = String(val).padStart(2, "0");
+    for (const [k, val] of Object.entries(v))
+      $(`[data-u="${k}"]`, countdownEl).textContent = String(val).padStart(
+        2,
+        "0",
+      );
   }
   return true;
 }
@@ -613,11 +781,15 @@ function tick() {
 let countdownTimer = null;
 function startCountdown() {
   if (!tick()) return;
-  countdownTimer = setInterval(() => { if (!tick()) clearInterval(countdownTimer); }, 1000);
+  countdownTimer = setInterval(() => {
+    if (!tick()) clearInterval(countdownTimer);
+  }, 1000);
 }
 document.addEventListener("visibilitychange", () => {
-  if (document.hidden) { clearInterval(countdownTimer); countdownTimer = null; }
-  else if (!countdownTimer && Date.now() < target) startCountdown();
+  if (document.hidden) {
+    clearInterval(countdownTimer);
+    countdownTimer = null;
+  } else if (!countdownTimer && Date.now() < target) startCountdown();
 });
 
 const menuBtn = $("#menuBtn");
@@ -633,7 +805,9 @@ menuBtn.addEventListener("click", () => {
   menuBtn.setAttribute("aria-expanded", String(open));
   menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
 });
-mobileMenu.addEventListener("click", (e) => { if (e.target.closest("a")) closeMenu(); });
+mobileMenu.addEventListener("click", (e) => {
+  if (e.target.closest("a")) closeMenu();
+});
 matchMedia("(min-width: 981px)").addEventListener("change", closeMenu);
 
 document.addEventListener("keydown", (e) => {
@@ -647,7 +821,9 @@ document.addEventListener("keydown", (e) => {
 const params = new URLSearchParams(location.search);
 const initial = params.get("categoria");
 renderTabs();
-setCategory(CATEGORIES.some((c) => c.name === initial) ? initial : "all", { updateUrl: false });
+setCategory(CATEGORIES.some((c) => c.name === initial) ? initial : "all", {
+  updateUrl: false,
+});
 renderCart();
 startCountdown();
 
@@ -660,6 +836,11 @@ const BINDINGS = {
   gsmOversize: String(TYPES.oversize.gsm),
   gsmPair: `${TYPES.basica.gsm} · ${TYPES.oversize.gsm}`,
 };
-$$("[data-bind]").forEach((el) => { if (el.dataset.bind in BINDINGS) el.textContent = BINDINGS[el.dataset.bind]; });
+$$("[data-bind]").forEach((el) => {
+  if (el.dataset.bind in BINDINGS) el.textContent = BINDINGS[el.dataset.bind];
+});
 $("#year").textContent = new Date().getFullYear();
-if (!whatsappReady()) console.warn("ALMA: configura CONFIG.whatsapp en script.js antes de publicar.");
+if (!whatsappReady())
+  console.warn(
+    "ALMA: configura CONFIG.whatsapp en script.js antes de publicar.",
+  );

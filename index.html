@@ -1,27 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-MX">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ALMA — Camisetas básicas y oversize, streetwear y diseños personalizados</title>
-    <meta name="description" content="Catálogo ALMA: 145 diseños en camiseta básica (180 GSM, $250 MXN) u oversize (220 GSM, $350 MXN) — Halloween, superhéroes, rock y más. Pide por WhatsApp o personaliza la tuya.">
-    <meta name="theme-color" content="#15100e">
-    <link rel="icon" type="image/png" href="alma_logo_completo.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        ALMA — Camisetas básicas y oversize, streetwear y diseños personalizados
+    </title>
+    <meta name="description" content="Catálogo ALMA: 145 diseños en camiseta básica (180 GSM, $250 MXN) u oversize (220 GSM, $350 MXN) — Halloween, superhéroes, rock y más. Pide por WhatsApp o personaliza la tuya." />
+    <meta name="theme-color" content="#15100e" />
+    <link rel="icon" type="image/png" href="alma_logo_completo.png" />
 
     <!-- Open Graph. TODO antes de publicar: cambia a la URL absoluta (https://tu-dominio/camiseta-referencia.jpeg) -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="es_MX">
-    <meta property="og:title" content="ALMA — Streetwear y camisetas personalizadas">
-    <meta property="og:description" content="145 diseños en camiseta básica desde $250 MXN u oversize desde $350 MXN. Edición Halloween ya disponible.">
-    <meta property="og:image" content="camiseta-referencia.jpeg">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content="ALMA — Streetwear y camisetas personalizadas" />
+    <meta property="og:description" content="145 diseños en camiseta básica desde $250 MXN u oversize desde $350 MXN. Edición Halloween ya disponible." />
+    <meta property="og:image" content="camiseta-referencia.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Big+Shoulders+Display:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preload" as="image" href="alma_logo_completo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Big+Shoulders+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preload" as="image" href="alma_logo_completo.png" />
 
     <!-- Pantalla de carga: estilos en línea para que se pinte antes que cualquier otra cosa (no depende de styles.css) -->
     <style>
@@ -35,11 +37,11 @@
             z-index: 9999;
             display: grid;
             place-items: center;
-            background: #15100e radial-gradient(60% 60% at 50% 48%, rgba(179, 32, 28, .30), transparent 72%);
+            background: #15100e radial-gradient( 60% 60% at 50% 48%, rgba(179, 32, 28, 0.3), transparent 72%);
             color: #cdbb98;
-            transition: opacity .6s ease, visibility .6s;
+            transition: opacity 0.6s ease, visibility 0.6s;
             /* Red de seguridad: si el JS falla, se oculta sola a los 6 s */
-            animation: loaderFailsafe .01s linear 6s forwards;
+            animation: loaderFailsafe 0.01s linear 6s forwards;
         }
         
         .loader.is-done {
@@ -58,16 +60,16 @@
         .loader__logo {
             width: min(300px, 62vw);
             height: auto;
-            animation: loaderReveal 1s cubic-bezier(.2, .7, .2, 1) both, loaderGlow 2.2s ease-in-out 1s infinite;
+            animation: loaderReveal 1s cubic-bezier(0.2, 0.7, 0.2, 1) both, loaderGlow 2.2s ease-in-out 1s infinite;
         }
         
         .loader__tag {
             margin: 0;
             font: 600 11px/1 Archivo, system-ui, sans-serif;
-            letter-spacing: .32em;
+            letter-spacing: 0.32em;
             text-transform: uppercase;
-            color: rgba(239, 230, 214, .6);
-            animation: loaderFade .8s ease .5s both;
+            color: rgba(239, 230, 214, 0.6);
+            animation: loaderFade 0.8s ease 0.5s both;
         }
         
         .loader__bar {
@@ -76,7 +78,7 @@
             width: min(180px, 46vw);
             height: 2px;
             overflow: hidden;
-            background: rgba(239, 230, 214, .14);
+            background: rgba(239, 230, 214, 0.14);
         }
         
         .loader__bar i {
@@ -90,8 +92,8 @@
         @keyframes loaderReveal {
             from {
                 clip-path: inset(0 100% 0 0);
-                opacity: .2;
-                transform: translateY(8px) scale(.97);
+                opacity: 0.2;
+                transform: translateY(8px) scale(0.97);
             }
             to {
                 clip-path: inset(0 0 0 0);
@@ -102,7 +104,7 @@
         
         @keyframes loaderGlow {
             50% {
-                filter: drop-shadow(0 0 18px rgba(205, 187, 152, .35));
+                filter: drop-shadow(0 0 18px rgba(205, 187, 152, 0.35));
             }
         }
         
@@ -136,406 +138,811 @@
                 animation: none;
             }
             .loader {
-                animation: loaderFailsafe .01s linear 6s forwards;
+                animation: loaderFailsafe 0.01s linear 6s forwards;
             }
             .loader__bar i {
                 animation: none;
                 width: 100%;
-                opacity: .5;
+                opacity: 0.5;
             }
         }
     </style>
-    <noscript><style>.loader { display: none; } html.is-loading { overflow: auto; }</style></noscript>
-</head>
+    <noscript><style>
+        .loader {
+          display: none;
+        }
+        html.is-loading {
+          overflow: auto;
+        }
+      </style></noscript
+    >
+  </head>
 
-<body>
+  <body>
     <!-- ===== PANTALLA DE CARGA ===== -->
     <div class="loader" id="loader" role="status" aria-live="polite">
-        <div class="loader__inner">
-            <img class="loader__logo" src="alma_logo_completo.png" alt="ALMA" width="800" height="370" decoding="sync" fetchpriority="high">
-            <p class="loader__tag" aria-hidden="true">Streetwear / Custom T-shirts</p>
-            <span class="loader__bar" aria-hidden="true"><i></i></span>
-            <span class="sr-only">Cargando ALMA…</span>
-        </div>
+      <div class="loader__inner">
+        <img
+          class="loader__logo"
+          src="alma_logo_completo.png"
+          alt="ALMA"
+          width="800"
+          height="370"
+          decoding="sync"
+          fetchpriority="high"
+        />
+        <p class="loader__tag" aria-hidden="true">
+          Streetwear / Custom T-shirts
+        </p>
+        <span class="loader__bar" aria-hidden="true"><i></i></span>
+        <span class="sr-only">Cargando ALMA…</span>
+      </div>
     </div>
     <script>
-        /* Cierra la pantalla de carga: cuando la página termina de cargar, con un mínimo para que se aprecie el logo
-                   (más corto si ya la viste en esta sesión) y un máximo de 4 s para no bloquear nunca al cliente. */
-        (function() {
-            var el = document.getElementById("loader");
-            if (!el) return;
-            var root = document.documentElement;
-            var seen = false;
-            try {
-                seen = sessionStorage.getItem("almaLoaderSeen") === "1";
-                sessionStorage.setItem("almaLoaderSeen", "1");
-            } catch (e) {}
-            var MIN = seen ? 450 : 1400,
-                MAX = 4000,
-                done = false;
-            root.classList.add("is-loading");
+      /* Cierra la pantalla de carga: cuando la página termina de cargar, con un mínimo para que se aprecie el logo
+                           (más corto si ya la viste en esta sesión) y un máximo de 4 s para no bloquear nunca al cliente. */
+      (function () {
+        var el = document.getElementById("loader");
+        if (!el) return;
+        var root = document.documentElement;
+        var seen = false;
+        try {
+          seen = sessionStorage.getItem("almaLoaderSeen") === "1";
+          sessionStorage.setItem("almaLoaderSeen", "1");
+        } catch (e) {}
+        var MIN = seen ? 450 : 1400,
+          MAX = 4000,
+          done = false;
+        root.classList.add("is-loading");
 
-            function hide() {
-                if (done) return;
-                done = true;
-                var wait = Math.max(0, MIN - (window.performance && performance.now ? performance.now() : 0));
-                setTimeout(function() {
-                    el.classList.add("is-done");
-                    root.classList.remove("is-loading");
-                    setTimeout(function() {
-                        if (el.parentNode) el.parentNode.removeChild(el);
-                    }, 800);
-                }, wait);
-            }
-            if (document.readyState === "complete") hide();
-            else window.addEventListener("load", hide);
-            setTimeout(hide, MAX);
-        })();
+        function hide() {
+          if (done) return;
+          done = true;
+          var wait = Math.max(
+            0,
+            MIN -
+              (window.performance && performance.now ? performance.now() : 0),
+          );
+          setTimeout(function () {
+            el.classList.add("is-done");
+            root.classList.remove("is-loading");
+            setTimeout(function () {
+              if (el.parentNode) el.parentNode.removeChild(el);
+            }, 800);
+          }, wait);
+        }
+        if (document.readyState === "complete") hide();
+        else window.addEventListener("load", hide);
+        setTimeout(hide, MAX);
+      })();
     </script>
 
     <!-- Silueta reutilizable para las fichas sin foto -->
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <symbol id="tee" viewBox="0 0 100 100"><path d="M36 10 18 19 4 36l13 11 9-7v48h48V40l9 7 13-11-14-17-18-9c-3 9-11 13-14 13S39 19 36 10Z"/></symbol>
-  </svg>
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="tee" viewBox="0 0 100 100">
+        <path
+          d="M36 10 18 19 4 36l13 11 9-7v48h48V40l9 7 13-11-14-17-18-9c-3 9-11 13-14 13S39 19 36 10Z"
+        />
+      </symbol>
+    </svg>
 
     <a class="skip" href="#contenido">Saltar al contenido</a>
 
     <div id="site">
-        <div class="ticker" aria-hidden="true">
-            <div class="ticker__track">
-                <span>HALLOWEEN DROP</span><span>DESDE <b data-bind="priceFrom">$250</b> MXN</span><span>145 DISEÑOS</span><span>BÁSICA <b data-bind="gsmBasica">180</b> GSM · OVERSIZE <b data-bind="gsmOversize">220</b> GSM</span><span>TALLAS S — XL</span><span>PERSONALIZADOS</span>
-                <span>HALLOWEEN DROP</span><span>DESDE <b data-bind="priceFrom">$250</b> MXN</span><span>145 DISEÑOS</span><span>BÁSICA <b data-bind="gsmBasica">180</b> GSM · OVERSIZE <b data-bind="gsmOversize">220</b> GSM</span><span>TALLAS S — XL</span><span>PERSONALIZADOS</span>
-            </div>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>HALLOWEEN DROP</span
+          ><span>DESDE <b data-bind="priceFrom">$250</b> MXN</span
+          ><span>145 DISEÑOS</span
+          ><span
+            >BÁSICA <b data-bind="gsmBasica">180</b> GSM · OVERSIZE
+            <b data-bind="gsmOversize">220</b> GSM</span
+          ><span>TALLAS S — XL</span><span>PERSONALIZADOS</span>
+          <span>HALLOWEEN DROP</span
+          ><span>DESDE <b data-bind="priceFrom">$250</b> MXN</span
+          ><span>145 DISEÑOS</span
+          ><span
+            >BÁSICA <b data-bind="gsmBasica">180</b> GSM · OVERSIZE
+            <b data-bind="gsmOversize">220</b> GSM</span
+          ><span>TALLAS S — XL</span><span>PERSONALIZADOS</span>
         </div>
+      </div>
 
-        <header class="site-header">
-            <a class="brand" href="#inicio" aria-label="ALMA, ir al inicio"><img src="alma_logo_completo.png" alt="ALMA" width="800" height="370" fetchpriority="high"></a>
-            <nav class="desktop-nav" aria-label="Principal">
-                <a href="#catalogo">Catálogo</a>
-                <a href="#personaliza">Personaliza</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#tallas">Tallas</a>
-            </nav>
-            <div class="header-actions">
-                <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrito, 0 artículos" aria-haspopup="dialog">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Zm3 0V7a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-          <b id="cartCount">0</b>
-        </button>
-                <a class="btn btn--sm header-cta" href="#catalogo">Ver catálogo</a>
-                <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="ALMA, ir al inicio"
+          ><img
+            src="alma_logo_completo.png"
+            alt="ALMA"
+            width="800"
+            height="370"
+            fetchpriority="high"
+        /></a>
+        <nav class="desktop-nav" aria-label="Principal">
+          <a href="#catalogo">Catálogo</a>
+          <a href="#personaliza">Personaliza</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#tallas">Tallas</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            class="cart-button"
+            id="cartButton"
+            type="button"
+            aria-label="Abrir carrito, 0 artículos"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M6 8h12l-1 12H7L6 8Zm3 0V7a3 3 0 0 1 6 0v1"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <b id="cartCount">0</b>
+          </button>
+          <a class="btn btn--sm header-cta" href="#catalogo">Ver catálogo</a>
+          <button
+            class="menu-btn"
+            id="menuBtn"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#personaliza">Personaliza</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#tallas">Tallas</a>
+      </nav>
+
+      <main id="contenido">
+        <!-- ===== HALLOWEEN ===== -->
+        <section class="hw" id="inicio" aria-labelledby="hwTitle">
+          <svg
+            class="hw__drips"
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="xMidYMin slice"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M0 0H1440V20 H1380V28A5.5 5.5 0 0 1 1370 28V20 H1232V52A5.5 5.5 0 0 1 1222 52V20 H1094V68A4.5 4.5 0 0 1 1086 68V20 H1012V24A5.5 5.5 0 0 1 1002 24V20 H938V54A4.5 4.5 0 0 1 930 54V20 H800V28A5.5 5.5 0 0 1 788 28V20 H717V65A7.0 7.0 0 0 1 703 65V20 H581V37A9.0 9.0 0 0 1 563 37V20 H501V51A7.0 7.0 0 0 1 487 51V20 H358V66A5.5 5.5 0 0 1 346 66V20 H219V49A9.0 9.0 0 0 1 201 49V20 H127V49A9.0 9.0 0 0 1 109 49V20 H34V54A4.5 4.5 0 0 1 26 54V20H0Z"
+              fill="currentColor"
+            />
+          </svg>
+          <svg
+            class="hw__web hw__web--a"
+            viewBox="0 0 260 260"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M0 0L260.0 0.0M0 0L253.5 57.9M0 0L234.3 112.8M0 0L203.3 162.1M0 0L162.1 203.3M0 0L112.8 234.3M0 0L57.9 253.5M0 0L0.0 260.0M52.0 0.0Q47.8 5.4 50.7 11.6Q45.4 15.9 46.9 22.6Q40.7 25.6 40.7 32.4Q34.0 34.0 32.4 40.7Q25.6 40.7 22.6 46.9Q15.9 45.4 11.6 50.7Q5.4 47.8 0.0 52.0M98.8 0.0Q90.7 10.2 96.3 22.0Q86.2 30.2 89.0 42.9Q77.3 48.6 77.2 61.6Q64.6 64.6 61.6 77.2Q48.6 77.3 42.9 89.0Q30.2 86.2 22.0 96.3Q10.2 90.7 0.0 98.8M150.8 0.0Q138.5 15.6 147.0 33.6Q131.5 46.0 145.9 65.4Q118.0 74.1 117.9 94.0Q98.5 98.5 94.0 117.9Q74.1 118.0 65.4 145.9Q46.0 131.5 33.6 147.0Q15.6 138.5 0.0 150.8M208.0 0.0Q191.0 21.5 202.8 46.3Q181.4 63.5 187.4 90.2Q162.8 102.3 162.6 129.7Q145.9 145.9 129.7 162.6Q102.3 162.8 90.2 187.4Q63.5 181.4 46.3 202.8Q21.5 191.0 0.0 208.0M260.0 0.0Q238.8 26.9 253.5 57.9Q226.8 79.4 234.3 112.8Q203.5 127.8 203.3 162.1Q169.9 169.9 162.1 203.3Q127.8 203.5 112.8 234.3Q79.4 226.8 57.9 253.5Q26.9 238.8 0.0 260.0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            class="hw__web hw__web--b"
+            viewBox="0 0 260 260"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M0 0L260.0 0.0M0 0L253.5 57.9M0 0L234.3 112.8M0 0L203.3 162.1M0 0L162.1 203.3M0 0L112.8 234.3M0 0L57.9 253.5M0 0L0.0 260.0M52.0 0.0Q47.8 5.4 50.7 11.6Q45.4 15.9 46.9 22.6Q40.7 25.6 40.7 32.4Q34.0 34.0 32.4 40.7Q25.6 40.7 22.6 46.9Q15.9 45.4 11.6 50.7Q5.4 47.8 0.0 52.0M98.8 0.0Q90.7 10.2 96.3 22.0Q86.2 30.2 89.0 42.9Q77.3 48.6 77.2 61.6Q64.6 64.6 61.6 77.2Q48.6 77.3 42.9 89.0Q30.2 86.2 22.0 96.3Q10.2 90.7 0.0 98.8M150.8 0.0Q138.5 15.6 147.0 33.6Q131.5 46.0 145.9 65.4Q118.0 74.1 117.9 94.0Q98.5 98.5 94.0 117.9Q74.1 118.0 65.4 145.9Q46.0 131.5 33.6 147.0Q15.6 138.5 0.0 150.8M208.0 0.0Q191.0 21.5 202.8 46.3Q181.4 63.5 187.4 90.2Q162.8 102.3 162.6 129.7Q145.9 145.9 129.7 162.6Q102.3 162.8 90.2 187.4Q63.5 181.4 46.3 202.8Q21.5 191.0 0.0 208.0M260.0 0.0Q238.8 26.9 253.5 57.9Q226.8 79.4 234.3 112.8Q203.5 127.8 203.3 162.1Q169.9 169.9 162.1 203.3Q127.8 203.5 112.8 234.3Q79.4 226.8 57.9 253.5Q26.9 238.8 0.0 260.0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="hw__inner">
+            <div class="hw__copy">
+              <p class="chip">Horror drop · 30 diseños</p>
+              <h1 id="hwTitle">Halloween</h1>
+              <p class="hw__tagline">No todos los monstruos se disfrazan.</p>
+              <div class="hw__actions">
+                <a
+                  class="btn btn--red"
+                  href="?categoria=Halloween#catalogo"
+                  data-jump-category="Halloween"
+                  >Ver colección <span aria-hidden="true">→</span></a
+                >
+                <a class="btn btn--light" href="#personaliza">Crear la mía</a>
+              </div>
+              <div
+                class="countdown"
+                id="countdown"
+                role="timer"
+                aria-label="Tiempo que falta para Halloween"
+              >
+                <div><b data-u="d">00</b><span>días</span></div>
+                <div><b data-u="h">00</b><span>horas</span></div>
+                <div><b data-u="m">00</b><span>min</span></div>
+                <div><b data-u="s">00</b><span>seg</span></div>
+              </div>
+              <p class="countdown-done" id="countdownDone" hidden>
+                Es Halloween. Los diseños siguen disponibles.
+              </p>
             </div>
-        </header>
+            <div class="hw__poster" aria-hidden="true">
+              <img
+                src="skull-halloween.png"
+                alt=""
+                width="452"
+                height="585"
+                fetchpriority="high"
+              />
+              <div class="hw__stamp">
+                TRICK<br /><small>or</small><br />TREAT
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+        <!-- ===== MARCA ===== -->
+        <section class="brand-hero">
+          <div class="wrap brand-hero__grid">
+            <div>
+              <p class="eyebrow">Streetwear / Custom T-shirts</p>
+              <h2 class="display-xl">
+                Viste<br /><em>lo que</em><br />te representa.
+              </h2>
+              <p class="lead">
+                Camisetas básicas y oversize, gráficos y piezas personalizadas
+                para llevar tus referencias a la calle.
+              </p>
+              <div class="row">
+                <a class="btn" href="#catalogo"
+                  >Explorar catálogo <span aria-hidden="true">→</span></a
+                >
+                <a class="btn btn--ghost" href="#personaliza">Personalizar</a>
+              </div>
+            </div>
+            <figure class="brand-hero__photo">
+              <img
+                src="camiseta-referencia.jpeg"
+                alt="Camiseta negra ALMA con gráfico impreso"
+                width="1600"
+                height="1067"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Pieza de referencia · ALMA</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="specs" aria-label="Características">
+          <div class="wrap specs__grid">
+            <div>
+              <b data-bind="gsmPair">180 · 220</b
+              ><span>GSM · básica y oversize</span>
+            </div>
+            <div><b>100%</b><span>algodón</span></div>
+            <div><b>Unisex</b><span>tallas S a XL</span></div>
+            <div>
+              <b data-bind="priceFrom">$250</b
+              ><span>MXN · desde, según el tipo</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== CATÁLOGO ===== -->
+        <section
+          class="section catalog"
+          id="catalogo"
+          aria-labelledby="catalogTitle"
+        >
+          <div class="wrap">
+            <div class="catalog__head">
+              <div>
+                <p class="eyebrow">02 / Catálogo</p>
+                <h2 class="display-lg" id="catalogTitle">
+                  Encuentra tu <span>diseño.</span>
+                </h2>
+              </div>
+              <label class="search" for="searchInput">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="6.5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="m16 16 4.5 4.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <input
+                  id="searchInput"
+                  type="search"
+                  placeholder="Buscar diseño o código…"
+                  autocomplete="off"
+                  enterkeyhint="search"
+                />
+              </label>
+            </div>
+
+            <div
+              class="tabs"
+              id="categoryTabs"
+              role="group"
+              aria-label="Filtrar por categoría"
+            ></div>
+
+            <p class="results" aria-live="polite">
+              <span id="resultCount">145 diseños</span
+              ><span
+                >Básica <span data-bind="priceBasica">$250</span> · Oversize
+                <span data-bind="priceOversize">$350</span> MXN</span
+              >
+            </p>
+
+            <ul class="grid" id="productGrid"></ul>
+
+            <div class="empty" id="emptyState" hidden>
+              <p id="emptyText"></p>
+              <a
+                class="btn btn--sm"
+                id="emptyCta"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                hidden
+                >Pedir este diseño por WhatsApp</a
+              >
+            </div>
+
+            <div class="more">
+              <button class="btn btn--ghost" id="loadMore" type="button" hidden>
+                Ver más diseños
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== PERSONALIZA ===== -->
+        <section
+          class="section custom"
+          id="personaliza"
+          aria-labelledby="customTitle"
+        >
+          <div class="wrap custom__grid">
+            <div>
+              <p class="eyebrow">03 / Custom studio</p>
+              <h2 class="display-lg" id="customTitle">
+                Tu idea.<br /><span>Tu camiseta.</span>
+              </h2>
+              <p class="lead">
+                Mándanos una referencia, imagen, frase o concepto y lo
+                convertimos en una pieza ALMA.
+              </p>
+              <a
+                class="btn"
+                id="whatsappCustom"
+                href="https://wa.me/5219983534113"
+                target="_blank"
+                rel="noopener"
+                >Personalizar por WhatsApp <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <ol class="steps">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Cuéntanos tu idea</h3>
+                  <p>Imagen, frase, ilustración, logo o referencia.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Elige tu talla</h3>
+                  <p>S · M · L · XL en fit oversize.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Definimos el diseño</h3>
+                  <p>Revisamos contigo cómo debe quedar.</p>
+                </div>
+              </li>
+              <li>
+                <span>04</span>
+                <div>
+                  <h3>Producimos</h3>
+                  <p>Tu idea se convierte en una pieza ALMA.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ===== NOSOTROS ===== -->
+        <section
+          class="section about"
+          id="nosotros"
+          aria-labelledby="aboutTitle"
+        >
+          <div class="wrap about__grid">
+            <div>
+              <p class="eyebrow">04 / Nosotros</p>
+              <h2 class="display-lg" id="aboutTitle">Más que<br />ropa.</h2>
+            </div>
+            <div>
+              <p class="lead">
+                ALMA nace de una idea sencilla: vestir aquello que te
+                representa.
+              </p>
+              <p>
+                Una selección de cultura pop, música, horror, arte y diseños
+                propios con una estética streetwear limpia, gráfica y directa.
+              </p>
+              <ul class="tags">
+                <li>Básica 180 GSM</li>
+                <li>Oversize 220 GSM</li>
+                <li>Unisex</li>
+                <li>Custom</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TALLAS ===== -->
+        <section class="section sizes" id="tallas" aria-labelledby="sizesTitle">
+          <div class="wrap sizes__grid">
+            <div>
+              <p class="eyebrow">05 / Fit guide</p>
+              <h2 class="display-lg" id="sizesTitle">
+                Encuentra<br />el <span>fit.</span>
+              </h2>
+              <p>
+                Estas medidas son de la camiseta <strong>oversize</strong> (220
+                GSM), unisex. Están en centímetros y se toman con la prenda
+                extendida. Para la camiseta básica (180 GSM), pídenos sus
+                medidas por WhatsApp.
+              </p>
+              <img
+                src="etiqueta-alma-referencia.jpeg"
+                alt="Etiqueta ALMA talla M, fit oversize"
+                width="1264"
+                height="843"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="size-card">
+              <div class="table-scroll">
+                <table>
+                  <caption class="sr-only">
+                    Medidas de la camiseta oversize por talla, en centímetros
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Talla</th>
+                      <th scope="col">Pecho</th>
+                      <th scope="col">Largo</th>
+                      <th scope="col">Hombro</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">S</th>
+                      <td>55 cm</td>
+                      <td>70 cm</td>
+                      <td>50 cm</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">M</th>
+                      <td>58 cm</td>
+                      <td>73 cm</td>
+                      <td>52 cm</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">L</th>
+                      <td>62 cm</td>
+                      <td>76 cm</td>
+                      <td>55 cm</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">XL</th>
+                      <td>66 cm</td>
+                      <td>79 cm</td>
+                      <td>58 cm</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="size-note">
+                ¿Dudas con tu talla? Escríbenos por WhatsApp y te ayudamos a
+                elegir.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- ===== REDES ===== -->
+        <section
+          class="section social"
+          id="redes"
+          aria-labelledby="socialTitle"
+        >
+          <div class="wrap">
+            <p class="eyebrow">06 / Comunidad</p>
+            <h2 class="display-lg" id="socialTitle">
+              Mira nuestras <span>redes.</span>
+            </h2>
+            <p class="lead">
+              Lanzamientos, diseños nuevos y camisetas reales de nuestros
+              clientes. Síguenos y no te pierdas el próximo drop.
+            </p>
+            <ul class="social__list">
+              <li>
+                <a
+                  class="social__card"
+                  href="https://www.instagram.com/almashop.mx"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="social__icon"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                      />
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="4.2"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                      />
+                      <circle
+                        cx="17.4"
+                        cy="6.6"
+                        r="1.2"
+                        fill="currentColor"
+                      /></svg
+                  ></span>
+                  <span class="social__text"
+                    ><strong>Instagram</strong><small>@almashop.mx</small></span
+                  >
+                  <span class="social__go" aria-hidden="true">↗</span></a
+                >
+              </li>
+              <li>
+                <a
+                  class="social__card"
+                  href="https://www.facebook.com/share/18ct94naH8/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="social__icon"
+                    ><svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.800v3h2.600V21h3.100Z"
+                      /></svg
+                  ></span>
+                  <span class="social__text"
+                    ><strong>Facebook</strong
+                    ><small>Síguenos en Facebook</small></span
+                  >
+                  <span class="social__go" aria-hidden="true">↗</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="wrap footer__grid">
+          <img
+            src="alma_logo_completo.png"
+            alt="ALMA"
+            width="800"
+            height="370"
+            loading="lazy"
+          />
+          <p>
+            Streetwear / Custom T-shirts<br />Pedidos y personalizados por
+            WhatsApp.
+          </p>
+          <nav aria-label="Pie de página">
             <a href="#catalogo">Catálogo</a>
             <a href="#personaliza">Personaliza</a>
-            <a href="#nosotros">Nosotros</a>
             <a href="#tallas">Tallas</a>
-        </nav>
-
-        <main id="contenido">
-            <!-- ===== HALLOWEEN ===== -->
-            <section class="hw" id="inicio" aria-labelledby="hwTitle">
-                <svg class="hw__drips" viewBox="0 0 1440 80" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false"><path d="M0 0H1440V20 H1380V28A5.5 5.5 0 0 1 1370 28V20 H1232V52A5.5 5.5 0 0 1 1222 52V20 H1094V68A4.5 4.5 0 0 1 1086 68V20 H1012V24A5.5 5.5 0 0 1 1002 24V20 H938V54A4.5 4.5 0 0 1 930 54V20 H800V28A5.5 5.5 0 0 1 788 28V20 H717V65A7.0 7.0 0 0 1 703 65V20 H581V37A9.0 9.0 0 0 1 563 37V20 H501V51A7.0 7.0 0 0 1 487 51V20 H358V66A5.5 5.5 0 0 1 346 66V20 H219V49A9.0 9.0 0 0 1 201 49V20 H127V49A9.0 9.0 0 0 1 109 49V20 H34V54A4.5 4.5 0 0 1 26 54V20H0Z" fill="currentColor"/></svg>
-                <svg class="hw__web hw__web--a" viewBox="0 0 260 260" aria-hidden="true" focusable="false"><path d="M0 0L260.0 0.0M0 0L253.5 57.9M0 0L234.3 112.8M0 0L203.3 162.1M0 0L162.1 203.3M0 0L112.8 234.3M0 0L57.9 253.5M0 0L0.0 260.0M52.0 0.0Q47.8 5.4 50.7 11.6Q45.4 15.9 46.9 22.6Q40.7 25.6 40.7 32.4Q34.0 34.0 32.4 40.7Q25.6 40.7 22.6 46.9Q15.9 45.4 11.6 50.7Q5.4 47.8 0.0 52.0M98.8 0.0Q90.7 10.2 96.3 22.0Q86.2 30.2 89.0 42.9Q77.3 48.6 77.2 61.6Q64.6 64.6 61.6 77.2Q48.6 77.3 42.9 89.0Q30.2 86.2 22.0 96.3Q10.2 90.7 0.0 98.8M150.8 0.0Q138.5 15.6 147.0 33.6Q131.5 46.0 145.9 65.4Q118.0 74.1 117.9 94.0Q98.5 98.5 94.0 117.9Q74.1 118.0 65.4 145.9Q46.0 131.5 33.6 147.0Q15.6 138.5 0.0 150.8M208.0 0.0Q191.0 21.5 202.8 46.3Q181.4 63.5 187.4 90.2Q162.8 102.3 162.6 129.7Q145.9 145.9 129.7 162.6Q102.3 162.8 90.2 187.4Q63.5 181.4 46.3 202.8Q21.5 191.0 0.0 208.0M260.0 0.0Q238.8 26.9 253.5 57.9Q226.8 79.4 234.3 112.8Q203.5 127.8 203.3 162.1Q169.9 169.9 162.1 203.3Q127.8 203.5 112.8 234.3Q79.4 226.8 57.9 253.5Q26.9 238.8 0.0 260.0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-                <svg class="hw__web hw__web--b" viewBox="0 0 260 260" aria-hidden="true" focusable="false"><path d="M0 0L260.0 0.0M0 0L253.5 57.9M0 0L234.3 112.8M0 0L203.3 162.1M0 0L162.1 203.3M0 0L112.8 234.3M0 0L57.9 253.5M0 0L0.0 260.0M52.0 0.0Q47.8 5.4 50.7 11.6Q45.4 15.9 46.9 22.6Q40.7 25.6 40.7 32.4Q34.0 34.0 32.4 40.7Q25.6 40.7 22.6 46.9Q15.9 45.4 11.6 50.7Q5.4 47.8 0.0 52.0M98.8 0.0Q90.7 10.2 96.3 22.0Q86.2 30.2 89.0 42.9Q77.3 48.6 77.2 61.6Q64.6 64.6 61.6 77.2Q48.6 77.3 42.9 89.0Q30.2 86.2 22.0 96.3Q10.2 90.7 0.0 98.8M150.8 0.0Q138.5 15.6 147.0 33.6Q131.5 46.0 145.9 65.4Q118.0 74.1 117.9 94.0Q98.5 98.5 94.0 117.9Q74.1 118.0 65.4 145.9Q46.0 131.5 33.6 147.0Q15.6 138.5 0.0 150.8M208.0 0.0Q191.0 21.5 202.8 46.3Q181.4 63.5 187.4 90.2Q162.8 102.3 162.6 129.7Q145.9 145.9 129.7 162.6Q102.3 162.8 90.2 187.4Q63.5 181.4 46.3 202.8Q21.5 191.0 0.0 208.0M260.0 0.0Q238.8 26.9 253.5 57.9Q226.8 79.4 234.3 112.8Q203.5 127.8 203.3 162.1Q169.9 169.9 162.1 203.3Q127.8 203.5 112.8 234.3Q79.4 226.8 57.9 253.5Q26.9 238.8 0.0 260.0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-                <div class="hw__inner">
-                    <div class="hw__copy">
-                        <p class="chip">Horror drop · 30 diseños</p>
-                        <h1 id="hwTitle">Halloween</h1>
-                        <p class="hw__tagline">No todos los monstruos se disfrazan.</p>
-                        <div class="hw__actions">
-                            <a class="btn btn--red" href="?categoria=Halloween#catalogo" data-jump-category="Halloween">Ver colección <span aria-hidden="true">→</span></a>
-                            <a class="btn btn--light" href="#personaliza">Crear la mía</a>
-                        </div>
-                        <div class="countdown" id="countdown" role="timer" aria-label="Tiempo que falta para Halloween">
-                            <div><b data-u="d">00</b><span>días</span></div>
-                            <div><b data-u="h">00</b><span>horas</span></div>
-                            <div><b data-u="m">00</b><span>min</span></div>
-                            <div><b data-u="s">00</b><span>seg</span></div>
-                        </div>
-                        <p class="countdown-done" id="countdownDone" hidden>Es Halloween. Los diseños siguen disponibles.</p>
-                    </div>
-                    <div class="hw__poster" aria-hidden="true">
-                        <img src="skull-halloween.png" alt="" width="452" height="585" fetchpriority="high">
-                        <div class="hw__stamp">TRICK<br><small>or</small><br>TREAT</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===== MARCA ===== -->
-            <section class="brand-hero">
-                <div class="wrap brand-hero__grid">
-                    <div>
-                        <p class="eyebrow">Streetwear / Custom T-shirts</p>
-                        <h2 class="display-xl">Viste<br><em>lo que</em><br>te representa.</h2>
-                        <p class="lead">Camisetas básicas y oversize, gráficos y piezas personalizadas para llevar tus referencias a la calle.</p>
-                        <div class="row">
-                            <a class="btn" href="#catalogo">Explorar catálogo <span aria-hidden="true">→</span></a>
-                            <a class="btn btn--ghost" href="#personaliza">Personalizar</a>
-                        </div>
-                    </div>
-                    <figure class="brand-hero__photo">
-                        <img src="camiseta-referencia.jpeg" alt="Camiseta negra ALMA con gráfico impreso" width="1600" height="1067" loading="lazy" decoding="async">
-                        <figcaption>Pieza de referencia · ALMA</figcaption>
-                    </figure>
-                </div>
-            </section>
-
-            <section class="specs" aria-label="Características">
-                <div class="wrap specs__grid">
-                    <div><b data-bind="gsmPair">180 · 220</b><span>GSM · básica y oversize</span></div>
-                    <div><b>100%</b><span>algodón</span></div>
-                    <div><b>Unisex</b><span>tallas S a XL</span></div>
-                    <div><b data-bind="priceFrom">$250</b><span>MXN · desde, según el tipo</span></div>
-                </div>
-            </section>
-
-            <!-- ===== CATÁLOGO ===== -->
-            <section class="section catalog" id="catalogo" aria-labelledby="catalogTitle">
-                <div class="wrap">
-                    <div class="catalog__head">
-                        <div>
-                            <p class="eyebrow">02 / Catálogo</p>
-                            <h2 class="display-lg" id="catalogTitle">Encuentra tu <span>diseño.</span></h2>
-                        </div>
-                        <label class="search" for="searchInput">
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              <input id="searchInput" type="search" placeholder="Buscar diseño o código…" autocomplete="off" enterkeyhint="search">
-            </label>
-                    </div>
-
-                    <div class="tabs" id="categoryTabs" role="group" aria-label="Filtrar por categoría"></div>
-
-                    <p class="results" aria-live="polite"><span id="resultCount">145 diseños</span><span>Básica <span data-bind="priceBasica">$250</span> · Oversize <span data-bind="priceOversize">$350</span> MXN</span>
-                    </p>
-
-                    <ul class="grid" id="productGrid"></ul>
-
-                    <div class="empty" id="emptyState" hidden>
-                        <p id="emptyText"></p>
-                        <a class="btn btn--sm" id="emptyCta" href="#" target="_blank" rel="noopener" hidden>Pedir este diseño por WhatsApp</a>
-                    </div>
-
-                    <div class="more"><button class="btn btn--ghost" id="loadMore" type="button" hidden>Ver más diseños</button></div>
-                </div>
-            </section>
-
-            <!-- ===== PERSONALIZA ===== -->
-            <section class="section custom" id="personaliza" aria-labelledby="customTitle">
-                <div class="wrap custom__grid">
-                    <div>
-                        <p class="eyebrow">03 / Custom studio</p>
-                        <h2 class="display-lg" id="customTitle">Tu idea.<br><span>Tu camiseta.</span></h2>
-                        <p class="lead">Mándanos una referencia, imagen, frase o concepto y lo convertimos en una pieza ALMA.</p>
-                        <a class="btn" id="whatsappCustom" href="https://wa.me/5219983534113" target="_blank" rel="noopener">Personalizar por WhatsApp <span aria-hidden="true">↗</span></a>
-                    </div>
-                    <ol class="steps">
-                        <li><span>01</span>
-                            <div>
-                                <h3>Cuéntanos tu idea</h3>
-                                <p>Imagen, frase, ilustración, logo o referencia.</p>
-                            </div>
-                        </li>
-                        <li><span>02</span>
-                            <div>
-                                <h3>Elige tu talla</h3>
-                                <p>S · M · L · XL en fit oversize.</p>
-                            </div>
-                        </li>
-                        <li><span>03</span>
-                            <div>
-                                <h3>Definimos el diseño</h3>
-                                <p>Revisamos contigo cómo debe quedar.</p>
-                            </div>
-                        </li>
-                        <li><span>04</span>
-                            <div>
-                                <h3>Producimos</h3>
-                                <p>Tu idea se convierte en una pieza ALMA.</p>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-            </section>
-
-            <!-- ===== NOSOTROS ===== -->
-            <section class="section about" id="nosotros" aria-labelledby="aboutTitle">
-                <div class="wrap about__grid">
-                    <div>
-                        <p class="eyebrow">04 / Nosotros</p>
-                        <h2 class="display-lg" id="aboutTitle">Más que<br>ropa.</h2>
-                    </div>
-                    <div>
-                        <p class="lead">ALMA nace de una idea sencilla: vestir aquello que te representa.</p>
-                        <p>Una selección de cultura pop, música, horror, arte y diseños propios con una estética streetwear limpia, gráfica y directa.</p>
-                        <ul class="tags">
-                            <li>Básica 180 GSM</li>
-                            <li>Oversize 220 GSM</li>
-                            <li>Unisex</li>
-                            <li>Custom</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===== TALLAS ===== -->
-            <section class="section sizes" id="tallas" aria-labelledby="sizesTitle">
-                <div class="wrap sizes__grid">
-                    <div>
-                        <p class="eyebrow">05 / Fit guide</p>
-                        <h2 class="display-lg" id="sizesTitle">Encuentra<br>el <span>fit.</span></h2>
-                        <p>Estas medidas son de la camiseta <strong>oversize</strong> (220 GSM), unisex. Están en centímetros y se toman con la prenda extendida. Para la camiseta básica (180 GSM), pídenos sus medidas por WhatsApp.</p>
-                        <img src="etiqueta-alma-referencia.jpeg" alt="Etiqueta ALMA talla M, fit oversize" width="1264" height="843" loading="lazy" decoding="async">
-                    </div>
-                    <div class="size-card">
-                        <div class="table-scroll">
-                            <table>
-                                <caption class="sr-only">Medidas de la camiseta oversize por talla, en centímetros</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Talla</th>
-                                        <th scope="col">Pecho</th>
-                                        <th scope="col">Largo</th>
-                                        <th scope="col">Hombro</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">S</th>
-                                        <td>55 cm</td>
-                                        <td>70 cm</td>
-                                        <td>50 cm</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">M</th>
-                                        <td>58 cm</td>
-                                        <td>73 cm</td>
-                                        <td>52 cm</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">L</th>
-                                        <td>62 cm</td>
-                                        <td>76 cm</td>
-                                        <td>55 cm</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">XL</th>
-                                        <td>66 cm</td>
-                                        <td>79 cm</td>
-                                        <td>58 cm</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="size-note">¿Dudas con tu talla? Escríbenos por WhatsApp y te ayudamos a elegir.</p>
-                    </div>
-                </div>
-            </section>
-            <!-- ===== REDES ===== -->
-            <section class="section social" id="redes" aria-labelledby="socialTitle">
-                <div class="wrap">
-                    <p class="eyebrow">06 / Comunidad</p>
-                    <h2 class="display-lg" id="socialTitle">Mira nuestras <span>redes.</span></h2>
-                    <p class="lead">Lanzamientos, diseños nuevos y camisetas reales de nuestros clientes. Síguenos y no te pierdas el próximo drop.</p>
-                    <ul class="social__list">
-                        <li>
-                            <a class="social__card" href="https://www.instagram.com/almashop.mx" target="_blank" rel="noopener">
-                                <span class="social__icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></span>
-                                <span class="social__text"><strong>Instagram</strong><small>@almashop.mx</small></span>
-                                <span class="social__go" aria-hidden="true">↗</span></a>
-                        </li>
-                        <li>
-                            <a class="social__card" href="https://www.facebook.com/share/18ct94naH8/" target="_blank" rel="noopener">
-                                <span class="social__icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.800v3h2.600V21h3.100Z"/></svg></span>
-                                <span class="social__text"><strong>Facebook</strong><small>Síguenos en Facebook</small></span>
-                                <span class="social__go" aria-hidden="true">↗</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div class="wrap footer__grid">
-                <img src="alma_logo_completo.png" alt="ALMA" width="800" height="370" loading="lazy">
-                <p>Streetwear / Custom T-shirts<br>Pedidos y personalizados por WhatsApp.</p>
-                <nav aria-label="Pie de página">
-                    <a href="#catalogo">Catálogo</a>
-                    <a href="#personaliza">Personaliza</a>
-                    <a href="#tallas">Tallas</a>
-                    <a href="#redes">Redes</a>
-                    <a href="#inicio">Volver arriba ↑</a>
-                </nav>
-            </div>
-            <p class="footer__legal">© <span id="year">2026</span> ALMA. Todos los derechos reservados.</p>
-        </footer>
+            <a href="#redes">Redes</a>
+            <a href="#inicio">Volver arriba ↑</a>
+          </nav>
+        </div>
+        <p class="footer__legal">
+          © <span id="year">2026</span> ALMA. Todos los derechos reservados.
+        </p>
+      </footer>
     </div>
 
-    <a class="wa-fab" id="waFloat" href="https://wa.me/5219983534113" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 0 1 0 16.2 8 8 0 0 1-4.13-1.14l-.3-.18-3.1.82.83-3.03-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.3 4.1c-.2 0-.5.07-.76.35-.26.28-1 1-1 2.45s1.03 2.84 1.17 3.04c.15.2 2.02 3.22 4.98 4.38 2.46.97 2.96.78 3.5.73.53-.05 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34-.3-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.2.3-.76.95-.93 1.14-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56Z"/></svg>
-        <span class="wa-fab__label">WhatsApp</span>
+    <a
+      class="wa-fab"
+      id="waFloat"
+      href="https://wa.me/5219983534113"
+      target="_blank"
+      rel="noopener"
+      aria-label="Escríbenos por WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path
+          fill="currentColor"
+          d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 0 1 0 16.2 8 8 0 0 1-4.13-1.14l-.3-.18-3.1.82.83-3.03-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.3 4.1c-.2 0-.5.07-.76.35-.26.28-1 1-1 2.45s1.03 2.84 1.17 3.04c.15.2 2.02 3.22 4.98 4.38 2.46.97 2.96.78 3.5.73.53-.05 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34-.3-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.2.3-.76.95-.93 1.14-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56Z"
+        />
+      </svg>
+      <span class="wa-fab__label">WhatsApp</span>
     </a>
 
-    <noscript><p class="noscript">El catálogo necesita JavaScript para mostrarse. Escríbenos por WhatsApp y te lo enviamos.</p></noscript>
+    <noscript
+      ><p class="noscript">
+        El catálogo necesita JavaScript para mostrarse. Escríbenos por WhatsApp
+        y te lo enviamos.
+      </p></noscript
+    >
 
     <!-- ===== PRODUCTO ===== -->
     <div class="modal" id="productModal" hidden>
-        <div class="modal__backdrop" data-close></div>
-        <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <button class="icon-btn modal__close" type="button" data-close aria-label="Cerrar">×</button>
-            <div class="modal__media" id="modalImage"></div>
-            <div class="modal__info">
-                <p class="eyebrow eyebrow--red" id="modalCategory"></p>
-                <h2 id="modalTitle"></h2>
-                <p id="modalDescription"></p>
-                <p class="price" aria-live="polite"><span id="modalPrice">$250</span> <small id="modalPriceNote">MXN · desde</small></p>
-                <fieldset class="field">
-                    <legend>Tipo de camiseta</legend>
-                    <div class="type-pick" id="modalTypes"></div>
-                    <p class="field__error" id="typeError" role="alert" hidden>Elige el tipo de camiseta para continuar.</p>
-                </fieldset>
-                <fieldset class="field">
-                    <legend>Talla</legend>
-                    <div class="sizes-pick" id="modalSizes"></div>
-                    <p class="field__error" id="sizeError" role="alert" hidden>Elige una talla para continuar.</p>
-                </fieldset>
-                <div class="field">
-                    <span class="field__label" id="qtyLabel">Cantidad</span>
-                    <div class="qty" role="group" aria-labelledby="qtyLabel">
-                        <button type="button" id="qtyMinus" aria-label="Menos">−</button><output id="qtyValue">1</output><button type="button" id="qtyPlus" aria-label="Más">+</button>
-                    </div>
-                </div>
-                <div class="modal__actions">
-                    <button class="btn" id="addToCart" type="button">Agregar al carrito</button>
-                    <a class="btn btn--ghost" id="askWhatsapp" href="#" target="_blank" rel="noopener">Preguntar por WhatsApp ↗</a>
-                    <a class="text-link" href="#tallas" data-close>Ver guía de tallas →</a>
-                </div>
+      <div class="modal__backdrop" data-close></div>
+      <div
+        class="modal__card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button
+          class="icon-btn modal__close"
+          type="button"
+          data-close
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+        <div class="modal__media" id="modalImage"></div>
+        <div class="modal__info">
+          <p class="eyebrow eyebrow--red" id="modalCategory"></p>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+          <p class="price" aria-live="polite">
+            <span id="modalPrice">$250</span>
+            <small id="modalPriceNote">MXN · desde</small>
+          </p>
+          <fieldset class="field">
+            <legend>Tipo de camiseta</legend>
+            <div class="type-pick" id="modalTypes"></div>
+            <p class="field__error" id="typeError" role="alert" hidden>
+              Elige el tipo de camiseta para continuar.
+            </p>
+          </fieldset>
+          <fieldset class="field">
+            <legend>Talla</legend>
+            <div class="sizes-pick" id="modalSizes"></div>
+            <p class="field__error" id="sizeError" role="alert" hidden>
+              Elige una talla para continuar.
+            </p>
+          </fieldset>
+          <div class="field">
+            <span class="field__label" id="qtyLabel">Cantidad</span>
+            <div class="qty" role="group" aria-labelledby="qtyLabel">
+              <button type="button" id="qtyMinus" aria-label="Menos">−</button
+              ><output id="qtyValue">1</output
+              ><button type="button" id="qtyPlus" aria-label="Más">+</button>
             </div>
+          </div>
+          <div class="modal__actions">
+            <button class="btn" id="addToCart" type="button">
+              Agregar al carrito
+            </button>
+            <a
+              class="btn btn--ghost"
+              id="askWhatsapp"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >Preguntar por WhatsApp ↗</a
+            >
+            <a class="text-link" href="#tallas" data-close
+              >Ver guía de tallas →</a
+            >
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- ===== CARRITO ===== -->
     <div class="drawer-overlay" id="cartOverlay" hidden></div>
-    <aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
-        <div class="drawer__head">
-            <div>
-                <p class="eyebrow">ALMA / Carrito</p>
-                <h2 id="cartTitle">Tu pedido</h2>
-            </div>
-            <button class="icon-btn" id="cartClose" type="button" aria-label="Cerrar carrito">×</button>
+    <aside
+      class="drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cartTitle"
+      hidden
+    >
+      <div class="drawer__head">
+        <div>
+          <p class="eyebrow">ALMA / Carrito</p>
+          <h2 id="cartTitle">Tu pedido</h2>
         </div>
-        <div class="drawer__body" id="cartBody"></div>
-        <div class="drawer__foot">
-            <p class="total"><span>Subtotal</span><strong id="cartTotal">$0 MXN</strong></p>
-            <a class="btn btn--red" id="cartWhatsapp" href="#" target="_blank" rel="noopener" aria-disabled="true">Finalizar por WhatsApp ↗</a>
-            <small>El pedido se confirma contigo por WhatsApp antes de producir.</small>
-        </div>
+        <button
+          class="icon-btn"
+          id="cartClose"
+          type="button"
+          aria-label="Cerrar carrito"
+        >
+          ×
+        </button>
+      </div>
+      <div class="drawer__body" id="cartBody"></div>
+      <div class="drawer__foot">
+        <p class="total">
+          <span>Subtotal</span><strong id="cartTotal">$0 MXN</strong>
+        </p>
+        <a
+          class="btn btn--red"
+          id="cartWhatsapp"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          aria-disabled="true"
+          >Finalizar por WhatsApp ↗</a
+        >
+        <small
+          >El pedido se confirma contigo por WhatsApp antes de producir.</small
+        >
+      </div>
     </aside>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="script.js" defer></script>
-</body>
-
+  </body>
 </html>
