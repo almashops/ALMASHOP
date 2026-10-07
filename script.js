@@ -748,6 +748,24 @@ $("#askWhatsapp").addEventListener("click", (e) => {
   }
 });
 
+/* WhatsApp: apertura robusta para TODOS los enlaces wa.me.
+   Evita que el navegador (o el navegador interno de Instagram/Facebook) recargue la página
+   en lugar de abrir WhatsApp. Abre en pestaña nueva y, si el navegador la bloquea, navega en la misma. */
+document.addEventListener("click", (e) => {
+  const link = e.target.closest('a[href^="https://wa.me/"]');
+  if (!link || e.defaultPrevented) return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+  e.preventDefault();
+  if (!whatsappReady()) {
+    toast(
+      "Falta configurar el número de WhatsApp en script.js (CONFIG.whatsapp)",
+    );
+    return;
+  }
+  const win = window.open(link.href, "_blank", "noopener");
+  if (!win) window.location.assign(link.href);
+});
+
 /* ---------- 6. Cuenta regresiva, menú e init ---------- */
 const countdownEl = $("#countdown");
 const target = new Date(CONFIG.halloween).getTime();
